@@ -22,7 +22,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle('Dashboard');
-    this.getCourses();
+    this.getCourses().catch(reason => {
+      console.log(reason);
+    });
   }
 
   async getCourses() {

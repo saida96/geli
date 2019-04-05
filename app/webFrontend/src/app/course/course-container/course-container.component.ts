@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {SnackBarService} from '../../shared/services/snack-bar.service';
 import {UserService} from '../../shared/services/user.service';
@@ -43,7 +43,7 @@ export class CourseContainerComponent implements OnInit {
   }
 
   changeExpand() {
-      this.expand = !this.expand;
+    this.expand = !this.expand;
   }
 
   enrollCallback({courseId, accessKey}) {

@@ -82,7 +82,7 @@
             ],
             "styles": [
               "src/styles.scss",
-	      "./node_modules/ngx-lightbox/lightbox.css"
+              "./node_modules/ngx-lightbox/lightbox.css"
             ],
             "assets": [
               "src/assets",

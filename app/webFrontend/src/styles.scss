@@ -133,12 +133,13 @@ app-root > .app-wrapper {
 }
 
 .comments-dialog {
-  width:100%;
+  width: 100%;
   height: 100%;
   @include bp(md) {
     width: 50%;
     height: 90%;
   }
+
   .mat-dialog-container {
     padding: 0;
     overflow: hidden;
@@ -146,8 +147,8 @@ app-root > .app-wrapper {
 }
 
 .emoji-mart {
-   height: 179px !important;
-   width: 100% !important;
+  height: 179px !important;
+  width: 100% !important;
 }
 
 .emoji-mart-scroll {
@@ -192,7 +193,6 @@ app-root > .app-wrapper {
 }
 
 
-
 @-webkit-keyframes fadeOutDown {
   from {
     opacity: 1;
@@ -215,4 +215,9 @@ app-root > .app-wrapper {
     -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
   }
+}
+
+img {
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
 }

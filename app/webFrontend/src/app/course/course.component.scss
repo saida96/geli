@@ -6,7 +6,7 @@
 
   @include bp(sm) {
     flex: initial;
-    width: 300px;
+    width: 280px;
   }
 }
 
@@ -14,7 +14,7 @@
   margin-right: 20px;
   margin-bottom: 20px;
   width: 100%;
-  height: 100%;
+  height: 385px;
 
   .details-button {
     float: right;
@@ -52,6 +52,29 @@
   color: inherit;
 }
 
-a .mat-card-image:first-child{
+a .mat-card-image:first-child {
   margin-top: inherit;
+}
+
+.block-with-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  // don’t forget that .block-with-text can’t be an inline element
+}
+
+.mat-card-image {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+mat-card {
+  padding-top: 0;
+  border-radius: 10px;
+
+}
+
+img {
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
 }

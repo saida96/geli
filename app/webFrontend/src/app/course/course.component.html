@@ -1,37 +1,44 @@
-<mat-card *ngIf="course" class="course-card">
-  <mat-card-header>
-    <mat-card-title>
+<div>
+  <mat-card *ngIf="course" class="course-card mat-elevation-z8">
 
-      <ng-container *ngIf="course.userCanViewCourse; else courseName">
-        <a [routerLink]="['course', course._id]">
-          <ng-container *ngTemplateOutlet="courseName"></ng-container>
-        </a>
-      </ng-container>
+    <ng-container *ngIf="course.userCanViewCourse; else courseImage">
+      <a [routerLink]="['course', course._id]">
+        <ng-container *ngTemplateOutlet="courseImage"></ng-container>
+      </a>
+    </ng-container>
 
-      <ng-template #courseName><h2 title="{{course.name}}">{{course.name}}</h2></ng-template>
-
-    </mat-card-title>
-  </mat-card-header>
-
-  <ng-container *ngIf="course.userCanViewCourse; else courseImage">
-    <a [routerLink]="['course', course._id]">
-      <ng-container *ngTemplateOutlet="courseImage"></ng-container>
-    </a>
-  </ng-container>
-
-  <ng-template #courseImage>
-    <img *ngIf="!this.responsiveImageData" mat-card-image src="/assets/course-header-image.jpg">
-    <app-responsive-image *ngIf="this.responsiveImageData" [classes]="'mat-card-image'"
-                          [responsiveImageData]="this.responsiveImageData"></app-responsive-image>
-  </ng-template>
+    <ng-template #courseImage>
+      <img class="mat-card-image" *ngIf="!this.responsiveImageData" mat-card-image src="/assets/course-header-image.jpg">
+      <app-responsive-image *ngIf="this.responsiveImageData" [classes]="'mat-card-image'"
+                            [responsiveImageData]="this.responsiveImageData"></app-responsive-image>
+    </ng-template>
 
 
-  <mat-card-content>
-    <p>
-      {{course.description}}
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
+    <!--head-->
+    <mat-card-header>
+      <mat-card-title>
+
+        <ng-container *ngIf="course.userCanViewCourse; else courseName">
+          <a [routerLink]="['course', course._id]">
+            <ng-container *ngTemplateOutlet="courseName"></ng-container>
+          </a>
+        </ng-container>
+
+        <ng-template class="block-with-text" #courseName>
+          <mat-card-title title="{{course.name}}">{{course.name}}</mat-card-title>
+        </ng-template>
+
+      </mat-card-title>
+    </mat-card-header>
+
+    <!--description-->
+    <mat-card-content>
+      <p style="max-height: 85px; overflow: hidden;">
+        {{course.description}}
+      </p>
+    </mat-card-content>
+    <!--actions-->
+    <mat-card-actions>
     <span class="course-admin-actions" *ngIf="this.course.userCanEditCourse">
       <button mat-icon-button (click)="editCourse(course._id)" [matTooltip]="'course.text.editCourse' | translate">
         <mat-icon>mode_edit</mat-icon>
@@ -45,7 +52,7 @@
         <mat-icon color="warn" [matTooltip]="'course.text.notVisibleToStudents' | translate">visibility_off</mat-icon>
       </button>
     </span>
-    <span class="course-student-actions" *ngIf="this.userService.isStudent()">
+      <span class="course-student-actions" *ngIf="this.userService.isStudent()">
       <div style="float:left">
         <i class="material-icons" style="margin-top: 8px;"
            [matTooltip]="'course.tooltip.keyRequired' | translate"
@@ -63,10 +70,11 @@
       <mat-icon>remove_circle_outline</mat-icon>
     </button>
     </span>
-    <button mat-icon-button *ngIf="course.userCanViewCourse"
-            class="details-button" [routerLink]="['course', course._id]">
-      <mat-icon>arrow_forward</mat-icon>
-    </button>
+      <button mat-icon-button *ngIf="course.userCanViewCourse"
+              class="details-button" [routerLink]="['course', course._id]">
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
 
-  </mat-card-actions>
-</mat-card>
+    </mat-card-actions>
+  </mat-card>
+</div>
